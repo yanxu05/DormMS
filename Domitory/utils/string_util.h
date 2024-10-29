@@ -18,6 +18,7 @@ using namespace std;
 
 #define CODE_CONVERT_USE_WIN32
 
+
 class string_util
 {
 public:
@@ -27,5 +28,6 @@ public:
 public:
 	static std::string& trim_l(std::string &str);
         static std::string& trim_r(std::string &str);
+        static std::string& trim(std::string &str);
 };
 
