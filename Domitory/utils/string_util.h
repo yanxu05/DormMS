@@ -29,5 +29,7 @@ public:
 	static std::string& trim_l(std::string &str);
         static std::string& trim_r(std::string &str);
         static std::string& trim(std::string &str);
+
+	static std::string& to_upper(std::string &str);
 };
 
