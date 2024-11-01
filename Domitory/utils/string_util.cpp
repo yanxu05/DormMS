@@ -17,6 +17,14 @@ std::string& string_util::trim_l(std::string &str)
 	return str;
 }
 
+std::string& string_util::trim_r(std::string &str)
+{
+	if (str.empty()) return str;
+
+	str.erase(str.find_last_not_of(" \n\r\t") + 1);
+	return str;
+}
+
 std::string& string_util::trim(std::string &str)
 {
 	return trim_l(trim_r(str));
