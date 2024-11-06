@@ -33,5 +33,7 @@ public:
 
 	static std::string& to_upper(std::string &str);
 	static std::string to_upper_copy(std::string &str);
+
+	static std::string left(std::string &str, size_t n_count);
 };
 
