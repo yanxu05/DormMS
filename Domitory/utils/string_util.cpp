@@ -165,15 +165,14 @@ std::string string_util::format(const std::string fmt, ...)
 		va_end(ap);
 		if (n > -1 && n < size)
 		{
-			// Everything worked
 			str_ret.resize(n);
 			return str_ret;
 		}
 
-		if (n > -1)  // Needed size returned
-			size = n + 1;   // For null char
+		if (n > -1)
+			size = n + 1;
 		else
-			size *= 2;      // Guess at a larger size (OS specific)
+			size *= 2;
 	}
 
 	return str_ret;
