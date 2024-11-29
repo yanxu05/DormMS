@@ -156,11 +156,9 @@ bool string_util::is_empty(std::string &str)
 std::string string_util::format(const std::string fmt, ...)
 {
 	std::string str_ret;
-	int size = ((int)fmt.size()) * 2 + 50;   // Use a rubric appropriate for your code
+	int size = ((int)fmt.size()) * 2 + 50;
 	va_list ap;
-	while (true)
-	{
-		// Maximum two passes on a POSIX system...
+	while (tr
 		str_ret.resize(size);
 		va_start(ap, fmt);
 		int n = vsnprintf((char *)str_ret.data(), size, fmt.c_str(), ap);
