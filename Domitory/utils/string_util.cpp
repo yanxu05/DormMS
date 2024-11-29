@@ -158,7 +158,8 @@ std::string string_util::format(const std::string fmt, ...)
 	std::string str_ret;
 	int size = ((int)fmt.size()) * 2 + 50;
 	va_list ap;
-	while (tr
+	while (true)
+	{
 		str_ret.resize(size);
 		va_start(ap, fmt);
 		int n = vsnprintf((char *)str_ret.data(), size, fmt.c_str(), ap);
@@ -176,4 +177,32 @@ std::string string_util::format(const std::string fmt, ...)
 	}
 
 	return str_ret;
+}
+
+std::string& string_util::append_format(std::string& str, const std::string fmt, ...)
+{
+	std::string str_ret;
+	int size = ((int)fmt.size()) * 2 + 50;
+	va_list ap;
+	while (true)
+	{
+		str_ret.resize(size);
+		va_start(ap, fmt);
+		int n = vsnprintf((char *)str_ret.data(), size, fmt.c_str(), ap);
+		va_end(ap);
+		if (n > -1 && n < size)
+		{
+			str_ret.resize(n);
+			str += str_ret;
+			return str;
+		}
+
+		if (n > -1)
+			size = n + 1;
+		else
+			size *= 2;
+	}
+
+	str += str_ret;
+	return str;
 }
