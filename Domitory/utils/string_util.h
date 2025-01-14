@@ -57,7 +57,10 @@ public:
 
 	static std::wstring a2w_string(std::string str_a);
 	static std::string w2a_string(std::wstring str_w);
+
 	static string_t to_string(std::string str_a);
 	static string_t to_string(std::wstring str_w);
+
+	static std::wstring to_wstring(string_t str);
 };
 
