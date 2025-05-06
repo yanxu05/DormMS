@@ -877,3 +877,6 @@ std::wstring string_util::utf82unicode(std::string str_utf8)
 	delete[] pBuf;
 	return str_unicode;
 }
+#else
+#error string_util required must define CODE_CONVERT_USE_CPP11 or CODE_CONVERT_USE_WIN32 or CODE_CONVERT_USE_ICONV.
+#endif
